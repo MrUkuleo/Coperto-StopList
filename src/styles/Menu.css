@@ -1,0 +1,16 @@
+.menu {
+    border: 1px solid gray;
+    width: 40%;
+    border-radius: 15px;
+    background-color: var(--border);
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.card-container {
+    display: flex;
+    
+}

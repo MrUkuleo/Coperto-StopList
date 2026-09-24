@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Борщ с говядиной",
+    "categorie": "Кухня",
+    "price": 450,
+    "amount": 12
+  },
+
+  {
+    "name": "Салат Цезарь с курицей",
+    "categorie": "Кухня",
+    "price": 520,
+    "amount": 15
+  },
+
+  {
+    "name": "Паста Карбонара",
+    "categorie": "Кухня",
+    "price": 590,
+    "amount": 9
+  },
+
+  {
+    "name": "Стейк из говядины",
+    "categorie": "Кухня",
+    "price": 1250,
+    "amount": 6
+  },
+  
+  {
+    "name": "Пиво Guiness",
+    "categorie": "Бар",
+    "price": 320,
+    "amount": 20
+  },
+
+  {
+    "name": "Виски Jack Daniels",
+    "categorie": "Бар",
+    "price": 410,
+    "amount": 20
+  },
+
+  {
+    "name": "Лимонад домашний",
+    "categorie": "Бар",
+    "price": 250,
+    "amount": 20
+  },
+
+  {
+    "name": "Капучино",
+    "categorie": "Бар",
+    "price": 220,
+    "amount": 18
+  },
+
+  {
+    "name": "Чизкейк",
+    "categorie": "Десерты",
+    "price": 380,
+    "amount": 5
+  },
+
+  {
+    "name": "Тирамису",
+    "categorie": "Десерты",
+    "price": 420,
+    "amount": 4
+  },
+  
+  {
+    "name": "Медовик",
+    "categorie": "Десерты",
+    "price": 350,
+    "amount": 5
+  },
+
+  {
+    "name": "Мороженое",
+    "categorie": "Десерты",
+    "price": 280,
+    "amount": 4
+  }
+]

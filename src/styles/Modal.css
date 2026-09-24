@@ -1,0 +1,52 @@
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reason,
+.comment,
+.time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reason label,
+.comment label,
+.time label {
+  width: 140px;
+  text-align: right;
+}
+
+.reason select,
+.comment textarea,
+.time input {
+  width: 250px;
+  box-sizing: border-box;
+}
+
+.comment {
+  align-items: flex-start;
+}
+
+.comment textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+#show-error {
+  color: red;
+  margin: 5px 0 0 0;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+#show-error {
+  color: red;
+}
