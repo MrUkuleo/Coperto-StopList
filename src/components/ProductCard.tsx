@@ -1,23 +1,25 @@
 import { useState } from 'react'
 import AddForm from './AddForm';
 
-export default function ProductCard()
-{
-    const [isModalOpen, setIsModalOpen] = useState(false)
+type Product = {
+    name: string,
+    categorie: string,
+    price: number,
+    amount: number
+}
 
-    return(
-    <>
+export default function ProductCard({ product }: { product: Product })
+{
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
         <div className="card">
-            <h3>Название блюда</h3>
-            <h4>Категория</h4>
-            <p>Цена</p>
-            <p>Осталось: Х шт.</p>
-            <button onClick={() => setIsModalOpen(true)}>Добавить в стоп-лист</button>
-            
-            {isModalOpen && (
-              <AddForm onClose={() => setIsModalOpen(false)} />
-            )}
+            <h3>{product.name}</h3>
+            <h4>{product.categorie}</h4>
+            <p>{product.price} ₽</p>
+            <p>Осталось: {product.amount} шт.</p>
+            <button onClick={() => setIsModalOpen(true)}>Добавить в стоп-лист</button>    
+            {isModalOpen && <AddForm dishName={product.name} onClose={() => setIsModalOpen(false)} />}
         </div>
-    </>
     );
 }

@@ -2,6 +2,18 @@ main h3, h1 {
     text-align: center;
 }
 
+/* App.css */
 .main-section {
-    display: flex;
+  display: flex;
+  gap: 24px;
+}
+
+.panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  text-align: center;
 }

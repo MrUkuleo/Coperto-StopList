@@ -1,16 +1,49 @@
 .menu {
     border: 1px solid gray;
-    width: 40%;
     border-radius: 15px;
     background-color: var(--border);
     padding: 15px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+  margin: 4px 0;
 }
 
 .card-container {
     display: flex;
     
+}
+
+input {
+    font-size: 16px;
+    width: 40%;
+    padding: 15px 20px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.search button {
+    width: 8%;
+    font-size: 25px;
+    margin-left: 25px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }

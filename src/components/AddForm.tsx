@@ -1,7 +1,8 @@
 import "../styles/Modal.css"
 
 type AddFormProps = {
-  onClose: () => void
+  onClose: () => void,
+  dishName: string
 }
 
 function onAddBtnClicked() {
@@ -35,13 +36,13 @@ function onAddBtnClicked() {
 }
 
 
-export default function AddForm({ onClose }: AddFormProps)
+export default function AddForm({ onClose, dishName }: AddFormProps )
 {
   return (
     <div className="overlay">
       <div className="modal">
         <h3>Добавление в стоп-лист</h3>
-        <h5>Добавляемое блюдо: ЗАГЛУШКА С ЗАГЛУШКОЙ</h5>
+        <h5>Добавляемое блюдо: {dishName}</h5>
         <form>
           <div className="reason">
             <label>Причина: </label>
