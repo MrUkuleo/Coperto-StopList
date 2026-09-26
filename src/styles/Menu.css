@@ -46,3 +46,36 @@ li {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
+
+.card {
+  text-align: center;
+  padding: 15px;
+  background: var(--bg);
+  border: 1px solid grey;
+  border-radius: 7px;
+}
+
+.stoplist-card {
+  padding: 15px;
+  background: var(--bg);
+  border: 1px solid grey;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stoplist-card h3 {
+  text-align: left;
+}
+
+.stoplist-card button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.stoplist-card button:hover {
+  color: var(--accent);
+}

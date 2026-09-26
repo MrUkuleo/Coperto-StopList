@@ -1,3 +1,30 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background: var(--bg);
+  border: 1px solid grey;
+  border-radius: 7px;
+  padding: 15px 20px;
+  width: fit-content;
+  z-index: 11;
+}
+
 .modal form {
   display: flex;
   flex-direction: column;
@@ -48,5 +75,13 @@
 }
 
 #show-error {
+  color: red;
+}
+
+#yes-btn:hover {
+  color: green;
+}
+
+#no-btn:hover {
   color: red;
 }

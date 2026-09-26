@@ -53,7 +53,7 @@ export default function MenuList() {
                 </li>
               ))}
             </ul>
-            <hr></hr>
+            <hr/>
             <div className="cards-container">
               {visibleProducts.map((product) => (
                 <ProductCard key={product.name} product={product} />
