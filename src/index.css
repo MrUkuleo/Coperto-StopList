@@ -112,7 +112,6 @@ p {
   background: var(--bg);
   border: 1px solid grey;
   border-radius: 7px;
-  width: fit-content;
 }
 
 button {
@@ -125,4 +124,10 @@ button:hover {
   cursor: pointer;
   background-color: white;
   color: var(--bg);
+}
+
+@media (max-width: 375px) {
+  .card {
+    width: 90%;
+  }
 }

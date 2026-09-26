@@ -1,4 +1,5 @@
 import "../styles/Menu.css"
+import Search from "./Search"
 
 export default function StopList()
 {
@@ -6,10 +7,7 @@ export default function StopList()
     <section className='panel'>
         <h2>СТОП-ЛИСТ</h2>
         <div className="menu">
-            <div className="search">
-                <input placeholder="Поиск..."></input>
-                <button>Q</button>
-            </div>
+            <Search/>
             <h3>СПИСОК ПУСТ</h3>
             <div className="cards-container">
             </div>

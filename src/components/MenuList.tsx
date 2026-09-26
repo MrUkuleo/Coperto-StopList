@@ -1,6 +1,7 @@
 import { useState } from "react";
 import menuItems from "../data/menu.json";
 import ProductCard from "./ProductCard";
+import Search from "./Search";
 
 export default function MenuList() {
   const [selected, setSelected] = useState<string[]>(["Все"]);
@@ -27,11 +28,7 @@ export default function MenuList() {
     <section className='panel'>
         <h2>МЕНЮ</h2>
         <div className="menu">
-            <div className="search">
-                <input placeholder="Поиск..."></input>
-                <button id="search-btn">Q</button>
-            </div>
-
+            <Search/>
             <h4>Категории:</h4>
             <ul>
               <li>

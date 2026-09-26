@@ -1,8 +1,7 @@
 main h3, h1 {
-    text-align: center;
+  text-align: center;
 }
 
-/* App.css */
 .main-section {
   display: flex;
   gap: 24px;
@@ -16,4 +15,15 @@ main h3, h1 {
 .panel h2 {
   margin: 0 0 12px;
   text-align: center;
+}
+
+@media (max-width: 375px) {
+  .main-section {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .panel {    
+    width: 100%;
+  }
 }
