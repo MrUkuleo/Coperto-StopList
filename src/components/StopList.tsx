@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import menuItems from "../data/menu.json";
 import "../styles/Menu.css";
+import menuItems from "../data/menu.json";
 import Search from "./Search";
 import StopListCard from "./StopListCard";
 
@@ -17,23 +18,40 @@ type RootStateShape = {
 
 export default function StopList() {
   const items = useSelector((state: RootStateShape) => state.stopList.items);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const totalMenuItems = menuItems.length;
+
+  // Поиск здесь без категорий (в стоп-листе их нет) — просто
+  // сравниваем название блюда с запросом без учёта регистра.
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const visibleItems = items.filter((item) =>
+    item.name.toLowerCase().includes(normalizedQuery)
+  );
 
   return (
     <section className="panel">
       <h2>СТОП-ЛИСТ</h2>
       <div className="menu">
-        <Search />
+        <Search value={searchQuery} onChange={setSearchQuery} />
+
+        {/* Заголовок отражает общее состояние стоп-листа и не зависит
+            от поиска — сколько всего блюд сейчас снято с продажи. */}
         <h3 id="stoplist-items-count">
           {items.length === 0
             ? "Все позиции в продаже"
-            : `В стоп-листе: ${items.length}/${menuItems.length}`}
+            : `В стоп-листе: ${items.length}/${totalMenuItems}`}
         </h3>
 
         <hr />
         <div className="stoplist-cards-container">
-          {items.map((product) => (
-            <StopListCard key={product.name} product={product} />
-          ))}
+          {visibleItems.length === 0 ? (
+            <p>Ничего не найдено</p>
+          ) : (
+            visibleItems.map((product) => (
+              <StopListCard key={product.name} product={product} />
+            ))
+          )}
         </div>
       </div>
     </section>

@@ -29,6 +29,10 @@ export default function AddForm({ onClose, dishName }: AddFormProps) {
       setError("Укажите комментарий!");
       return;
     }
+    else if (reason === "other" && trimmedComment.length < 10) {
+      setError("Комментарий должен быть не менее 10 символов!");
+      return;
+    }
 
     setError("");
 
@@ -71,6 +75,7 @@ export default function AddForm({ onClose, dishName }: AddFormProps) {
             <textarea
               id="comment-section"
               maxLength={200}
+              minLength={ reason === "other" ? 10 : 0 }
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               style={{
