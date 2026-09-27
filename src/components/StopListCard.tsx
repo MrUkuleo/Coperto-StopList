@@ -42,7 +42,7 @@ export default function StopListCard({ product }: { product: Product }) {
         <h3>{product.name}</h3>
         <p>Добавлено в {product.time}</p>
         <p>Причина добавления: {reasonText}</p>
-        <p>{product.comment}</p>
+        <p className="stoplist-card-comment">{product.comment}</p>
       </div>
 
       <button type="button" onClick={() => setIsModalOpen(true)}>

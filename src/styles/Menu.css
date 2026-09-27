@@ -65,6 +65,29 @@ li {
   margin-bottom: 10px;
 }
 
+.stoplist-card-comment {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  max-height: 50%;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.categories {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.categories ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+}
+
 .stoplist-card h3 {
   text-align: left;
 }
@@ -85,4 +108,28 @@ li {
 
 .stoplist-card button:hover {
   color: var(--accent);
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+  }
+}
+
+.overlay {
+  animation: overlayFadeIn 0.2s ease-out;
+}
+
+.modal {
+  animation: modalPopIn 0.25s ease-out forwards;
 }
