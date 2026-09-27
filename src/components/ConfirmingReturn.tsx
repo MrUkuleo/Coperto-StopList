@@ -2,15 +2,17 @@ import "../styles/Modal.css";
 
 type ConfirmingReturnProps = {
   onClose: () => void;
+  onConfirm: () => void;
   dishName: string;
 };
 
 export default function ConfirmingReturn({
   onClose,
+  onConfirm,
   dishName,
 }: ConfirmingReturnProps) {
   function handleConfirm() {
-    alert(`Позиция «${dishName}» возвращена в меню!`);
+    onConfirm();
     onClose();
   }
 

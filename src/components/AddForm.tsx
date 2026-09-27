@@ -1,43 +1,49 @@
-import "../styles/Modal.css"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToStopList } from "../store/Stoplistslice";
+import "../styles/Modal.css";
 
 type AddFormProps = {
-  onClose: () => void,
-  dishName: string
-}
+  onClose: () => void;
+  dishName: string;
+};
 
-function onAddBtnClicked() {
-  const ShowError = document.getElementById("show-error") as HTMLParagraphElement;
-  const CommentSection = document.getElementById("comment-section") as HTMLTextAreaElement;
-  const SelectReason = document.getElementById("select-reason") as HTMLSelectElement;
-  const TimeInput = document.getElementById("time") as HTMLInputElement;
+export default function AddForm({ onClose, dishName }: AddFormProps) {
+  const dispatch = useDispatch();
 
-  const reason = SelectReason.value;
-  const comment = CommentSection.value.trim();
-  const time = TimeInput.value.trim();
+  const [reason, setReason] = useState<string>("");
+  const [comment, setComment] = useState<string>("");
+  const [time, setTime] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
-  if (
-    time === "" ||
-    reason === "") 
-  {
-    ShowError.textContent = "Заполните все обязательные поля!";
-    return;
+  function handleAddClick() {
+    const trimmedComment = comment.trim();
+    const trimmedTime = time.trim();
+
+    if (trimmedTime === "" || reason === "") {
+      setError("Заполните все обязательные поля!");
+      return;
+    }
+
+    if (reason === "other" && trimmedComment === "") {
+      setError("Укажите комментарий!");
+      return;
+    }
+
+    setError("");
+
+    dispatch(
+      addToStopList({
+        name: dishName,
+        reason,
+        comment: trimmedComment,
+        time: trimmedTime,
+      })
+    );
+
+    onClose();
   }
-  else if (reason === "other" && comment === "")
-  {
-    ShowError.textContent = "Укажите комментарий!";
-    CommentSection.style.borderColor = "red";
-    return;
-  }
 
-  CommentSection.style.borderColor = "grey";
-  ShowError.textContent = "";
-  alert("Ыыыаыа");
- 
-}
-
-
-export default function AddForm({ onClose, dishName }: AddFormProps )
-{
   return (
     <div className="overlay">
       <div className="modal">
@@ -47,7 +53,11 @@ export default function AddForm({ onClose, dishName }: AddFormProps )
           <div className="reason">
             <label>Причина: </label>
 
-            <select defaultValue="" id="select-reason">
+            <select
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              id="select-reason"
+            >
               <option value="" disabled hidden></option>
               <option value="outOfProducts">Закончились продукты</option>
               <option value="poorQuality">Плохое качество партии</option>
@@ -58,18 +68,34 @@ export default function AddForm({ onClose, dishName }: AddFormProps )
 
           <div className="comment">
             <label>Комментарий: </label>
-            <textarea id="comment-section"></textarea>
+            <textarea
+              id="comment-section"
+              maxLength={200}
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              style={{
+                borderColor:
+                  error && reason === "other" && comment.trim() === ""
+                    ? "red"
+                    : "grey",
+              }}
+            ></textarea>
           </div>
 
           <div className="time">
             <label>Время возврата: </label>
-            <input type="time" id="time"/>
+            <input
+              type="time"
+              id="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
           </div>
 
-          <p id="show-error"></p>
+          <p id="show-error">{error}</p>
 
           <div className="btns">
-            <button type="button" id="add-btn" onClick={onAddBtnClicked}>
+            <button type="button" id="add-btn" onClick={handleAddClick}>
               Добавить
             </button>
 
@@ -80,5 +106,5 @@ export default function AddForm({ onClose, dishName }: AddFormProps )
         </form>
       </div>
     </div>
-  )
+  );
 }
