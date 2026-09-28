@@ -85,3 +85,49 @@
 #no-btn:hover {
   color: red;
 }
+
+
+@media (max-width: 375px) {
+  .modal {
+    box-sizing: border-box;
+    width: 90vw;
+    max-width: 90vw;
+    min-width: 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .modal .reason,
+  .modal .comment,
+  .modal .time {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .modal .reason label,
+  .modal .comment label,
+  .modal .time label {
+    text-align: left;
+  }
+
+  .modal select,
+  .modal textarea,
+  .modal input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .modal .btns {
+    display: flex;
+    gap: 10px;
+  }
+
+  .modal .btns button {
+    flex: 1;
+  }
+}
