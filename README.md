@@ -1,32 +1,27 @@
-# React + TypeScript + Vite
+# Локальный запуск проекта
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+1. Скачать и установить Node.js с [официального сайта](https://nodejs.org/en/download)
+2. Открыть проект в Visual Studio Code, JetBrains или другой IDE на ваш выбор
+3. Вписать в терминал команды:
 ```
+npm install
+npm install @reduxjs/toolkit react-redux
+npm run dev
+```
+4. После этого в терминале появится ссылка на localhost. Перейдите по ней с зажатым Ctrl.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Принципы работы проекта
+Проект создан на React + Vite с использованием TypeScript и JavaScript.
+Стоп-лист реализован через Redux Toolkit, а не через локальный useState, чтобы состояние было доступно сразу в нескольких независимых компонентах (MenuList, StopList) без пробрасывания пропсов через дерево. 
+Поиск и фильтрация (по категории и без учёта регистра) сделаны через filter() на чистых данных при каждом рендере — это самый простой и предсказуемый вариант для такого объёма данных.
+
+При вводе некорректного времени возврата (например, вне допустимых лимитов) система автоматически устанавливает максимальное значение (23 и 59 соответственно). Требуется согласовать данный подход с заказчиком и обсудить альтернативные решения.
+
+## Что не успел реализовать
+Весь предусмотренный ТЗ функционал реализован в полном объёме. Возможные дальнейшие улучшения относятся исключительно к дополнительным и косметическим доработкам, не влияющим на основные задачи проекта. 
+К таковым относятся:
+1. Добавить анимацию закрытия модального окна и добавления блюда в стоп-лист
+2. Настроить, чтобы в карточках и панелях элементы располагались одинаково по вертикали
+3. Провести unit-тестирование
+
+и т. д.

@@ -81,14 +81,15 @@ p {
 
 button {
   background-color: transparent;
-  border: 2px solid;
+  border: 2px solid var(--text-h);
+  color: var(--text-h);
   border-radius: 15px;
   font-size: 15px;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: white;
+  background-color: var(--text-h);
   color: var(--bg);
 }
 
